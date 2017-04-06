@@ -20,7 +20,7 @@ function add_item(&$cart, $key, $quantity) {
         'qty'  => $quantity,
         'total' => $total
     );
-    $_SESSION['cart13'][$key] = $item;
+    $cart[$key] = $item;
 }
 
 // Update an item in the cart
