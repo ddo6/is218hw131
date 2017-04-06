@@ -39,9 +39,9 @@ function update_item(&$cart, $key, $quantity) {
 }
 
 // Get cart subtotal
-function get_subtotal () {
+function get_subtotal ($cart, $decimals =2) {
     $subtotal = 0;
-    foreach ($_SESSION['cart13'] as $item) {
+    foreach ($cart as $item) {
         $subtotal += $item['total'];
     }
     $subtotal_f = number_format($subtotal, 2);
