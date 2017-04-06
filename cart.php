@@ -1,4 +1,7 @@
 <?php
+
+namespace odum\cart {
+    
 // Add an item to the cart
 function add_item(&$cart, $key, $quantity) {
     global $products;
@@ -46,5 +49,6 @@ function get_subtotal ($cart, $decimals =2) {
     }
     $subtotal_f = number_format($subtotal, 2);
     return $subtotal_f;
+}
 }
 ?>
