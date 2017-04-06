@@ -6,8 +6,14 @@ session_set_cookie_params($lifetime, '/');
 session_start();
 
 // Create a cart array if needed
-if (empty($_SESSION['cart13'])) $_SESSION['cart13'] = array();
-
+if (empty($_SESSION['cart13'])) 
+{
+  $cart = array(); 
+}
+else 
+{
+    $cart = $_SESSION['cart13'];
+}
 // Create a table of products
 $products = array();
 $products['MMS-1754'] = array('name' => 'Flute', 'cost' => '149.50');
