@@ -24,17 +24,17 @@ function add_item(&$cart, $key, $quantity) {
 }
 
 // Update an item in the cart
-function update_item($key, $quantity) {
-    $quantity = (int) $quantity;
-    if (isset($_SESSION['cart13'][$key])) {
-        if ($quantity <= 0) {
-            unset($_SESSION['cart13'][$key]);
-        } else {
-            $_SESSION['cart13'][$key]['qty'] = $quantity;
-            $total = $_SESSION['cart13'][$key]['cost'] *
-                     $_SESSION['cart13'][$key]['qty'];
-            $_SESSION['cart13'][$key]['total'] = $total;
-        }
+function update_item(&$cart, $key, $quantity) {
+        $quantity = (int) $quantity;
+        if (isset($cart[$key])) {
+            if ($quantity <= 0) {
+                unset($cart[$key]);
+            } else {
+                $cart[$key]['qty'] = $quantity;
+                $total = $cart[$key]['cost'] *
+                         $cart[$key]['qty'];
+                $cart[$key]['total'] = $total;
+            }
     }
 }
 
