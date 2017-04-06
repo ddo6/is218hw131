@@ -1,14 +1,14 @@
 <?php
 // Add an item to the cart
-function add_item($key, $quantity) {
+function add_item(&$cart, $key, $quantity) {
     global $products;
     if ($quantity < 1) return;
 
     // If item already exists in cart, update quantity
-    if (isset($_SESSION['cart13'][$key])) {
-        $quantity += $_SESSION['cart13'][$key]['qty'];
-        update_item($key, $quantity);
-        return;
+   if (isset($cart[$key])) {
+            $quantity += $cart[$key]['qty'];
+            update_item($cart, $key, $quantity);
+            return;
     }
 
     // Add item
